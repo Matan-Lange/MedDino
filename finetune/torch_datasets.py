@@ -23,4 +23,4 @@ class CustomDataset(Dataset):
         if self.transform:
             image = self.transform(image)
 
-        return image, y
+        return image, float(y)
