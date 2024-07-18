@@ -17,5 +17,6 @@ class DinoVisionTransformerClassifier(nn.Module):
 
     def forward(self, x):
         x = self.model(x)
+        x = self.model.norm(x)
         x = self.classifier(x)
         return x
