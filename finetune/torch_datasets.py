@@ -6,11 +6,11 @@ from torch.utils.data import Dataset
 
 
 class CustomDataset(Dataset):
-    def __init__(self, base_path, csv_path, transform=None):
+    def __init__(self, base_path, csv_path, label_map, transform=None):
         self.data = pd.read_csv(csv_path)
         self.base_path = base_path
         self.transform = transform
-        self.label_map = {'malignant': 1, "benign": 0}
+        self.label_map = label_map
 
     def __len__(self):
         return len(self.data)
