@@ -56,6 +56,8 @@ if __name__ == "main":
     for i in range(1, 6):
         with mlflow.start_run(run_name=f'{params.dataset}{i}'):
 
+            mlflow.log_params(vars(params))
+
             train_dataset = CustomDataset(base_path=base_path,
                                           csv_path=os.path.join(csv_path, f'{params.dataset}_train_fold{i}.csv'),
                                           transform=train_transforms)
