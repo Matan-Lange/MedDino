@@ -17,8 +17,8 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.data.iloc[idx]
-        image = Image.open(os.path.join(self.base_path, row['filename']))
-        y = torch.tensor(self.label_map[row['label']])
+        image = Image.open(os.path.join(self.base_path, row[0]))
+        y = torch.tensor(self.label_map[row[1]])
 
         if self.transform:
             image = self.transform(image)
