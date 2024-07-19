@@ -44,6 +44,8 @@ def get_transforms():
 
 
 if __name__ == "main":
+    MLFLOW_TRACKING_URI = "sqlite:///mlflow.db"
+    mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
     params = parse_parameters()
     base_path = f'/content/MedDino/data/{params.dataset}/'
