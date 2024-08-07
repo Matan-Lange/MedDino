@@ -12,18 +12,24 @@ from .transforms import (
     make_normalize_transform,
 )
 
-
 logger = logging.getLogger("dinov2")
 
 
+# global_crops_scale and local_crops_scale define the scale range for random resized cropping.
+# local_crops_number indicates how many local crops to generate.
+# global_crops_size and local_crops_size specify the size of the crops.
+
+# geometric_augmentation_global and geometric_augmentation_local define the transformations for global and local crops, respectively.
+# Both transformations apply a random resized crop and a random horizontal flip to the images.
+
 class DataAugmentationDINO(object):
     def __init__(
-        self,
-        global_crops_scale,
-        local_crops_scale,
-        local_crops_number,
-        global_crops_size=224,
-        local_crops_size=96,
+            self,
+            global_crops_scale,
+            local_crops_scale,
+            local_crops_number,
+            global_crops_size=224,
+            local_crops_size=96,
     ):
         self.global_crops_scale = global_crops_scale
         self.local_crops_scale = local_crops_scale
